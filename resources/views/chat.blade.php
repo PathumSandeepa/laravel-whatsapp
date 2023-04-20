@@ -108,15 +108,14 @@
                      <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
                      <label class="form-label" for="textAreaExample">Type your message</label>
                   </div>
-
                   <div class="form-group mt-3">
                      <label for="dropdownOptions">Select a group:</label>
                      <select class="form-control" id="dropdownOptions">
-                        <option value="group01">Group 01</option>
-                        <option value="group02">Group 02</option>
-                        <option value="group03">Group 03</option>
-                        <option value="group04">Group 04</option>
-                        <option value="group05">Group 05</option>
+                     
+                     @foreach ($lists as $tbl_list)
+                        <option> {{ $tbl_list->VL_NAME }} </option>
+                     @endforeach
+
                      </select>
                   </div>
 

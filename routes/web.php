@@ -12,6 +12,6 @@ Route::get('/chat',[chatController::class, 'chatInterface'])->name('chat');
 
 
 //chat interface routers
-
+Route::get('/chat-interface',[chatController::class, 'chatInterface'])->name('interface');
 
 

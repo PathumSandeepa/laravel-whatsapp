@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\UserResource;
 use App\Models\Login;
+use App\Models\TblList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -27,7 +28,9 @@ class loginController extends Controller
         if (isset($tbl_login) && Hash::check($request->password, $tbl_login->VLOG_PASSWORD)) {
             // dd('success');
             // Auth::login($tbl_login);
-            return view('chat');
+            // return view('chat');
+            $lists = TblList::get();
+            return view('chat', ['lists' => $lists]);
         } else {
             return back()->withErrors([
                 'password' => 'Invalid Password',

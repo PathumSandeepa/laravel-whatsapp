@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\TblList;
+use App\Models\User;
 // use App\Models\TblList;
 // use App\Models\Tpno;
 
@@ -10,6 +13,7 @@ class chatController extends Controller
 {
     public function chatInterface()
     {
-        return view('chat');
+        $lists = TblList::get();
+        return view('chat', ['lists' => $lists]);
     }
 }
