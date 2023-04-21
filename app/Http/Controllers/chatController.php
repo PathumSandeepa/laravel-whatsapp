@@ -13,7 +13,9 @@ class chatController extends Controller
 {
     public function chatInterface()
     {
-        $lists = TblList::get();
+        $lists = TblList::with('tableListRelation')->get();
+        dd($lists);
         return view('chat', ['lists' => $lists]);
+
     }
 }

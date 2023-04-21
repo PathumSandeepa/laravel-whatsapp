@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class TblList extends Model
 {
     use HasFactory;
@@ -13,4 +14,9 @@ class TblList extends Model
         'IL_ID',
         'VL_NAME',
     ];
+    
+    public function tableListRelation()
+    {
+        return $this->hasMany(TpnoList::class,'IL_ID','IL_ID');
+    }
 }
