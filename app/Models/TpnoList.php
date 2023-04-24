@@ -17,6 +17,6 @@ class TpnoList extends Model
 
     public function tpnoListRelation()
     {
-        return $this->hasOne(Tpno::class, 'ITPL_ID', 'ITPL_ID');
+        return $this->hasOne(Tpno::class, 'ITP_ID', 'ITP_ID');
     }
 }

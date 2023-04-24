@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Resources\UserResource;
 use App\Models\Login;
 use App\Models\TblList;
@@ -23,16 +22,13 @@ class loginController extends Controller
             'password' => 'required|string',
         ]);
 
-        // Get user by username
+        // Get name in input field
         $tbl_login = Login::where('VLOG_NAME', $request->name)->first();
+
+        //get password and hash. check dp hash pw and user inputted hashed pw
         if (isset($tbl_login) && Hash::check($request->password, $tbl_login->VLOG_PASSWORD)) {
             
             $lists = TblList::with(['tableListRelation'])->get();
-            
-            // dd($lists);
-            // return view('chat', ['lists' => $lists]);
-            // $lists = TblList::with('tableListRelation')->get();
-
             $users = TblList::get();
             return view('chat', ['lists' => $lists]);
 
