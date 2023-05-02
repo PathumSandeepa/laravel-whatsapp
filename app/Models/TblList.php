@@ -17,6 +17,6 @@ class TblList extends Model
     
     public function tableListRelation()
     {
-        return $this->hasMany(TpnoList::class,'IL_ID','IL_ID');
+        return $this->hasOne(TpnoList::class,'IL_ID','IL_ID');
     }
 }

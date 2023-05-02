@@ -90,46 +90,47 @@
 <body>
 
 
+   <form method="POST" action="{{url('store-chat')}}">
+      @csrf
+      <section style="background-color: #F8F8FF; width: 100%; height: 500px; margin-top: 10rem;">
+         <div class="container py-5">
 
-<section style="background-color: #F8F8FF; width: 100%; height: 500px; margin-top: 10rem;">
-   <div class="container py-5">
+            <div class="row d-flex justify-content-center">
+               <div class="col-md-8 col-lg-6 col-xl-4">
 
-      <div class="row d-flex justify-content-center">
-         <div class="col-md-8 col-lg-6 col-xl-4">
+                  <div class="card" id="chat1" style="border-radius: 15px;">
+                     <div class="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                        <i class="fas fa-angle-left"></i>
+                        <p class="mb-0 fw-bold">Live chat</p>
+                        <i class="fas fa-times"></i>
+                     </div>
+                     <div class="card-body">
+                        <div class="form-outline">
+                           <textarea name="chatArea" class="form-control" id="textAreaExample" rows="4"></textarea>
+                           <label class="form-label" for="textAreaExample">Type your message</label>
+                        </div>
+                        <div class="form-group mt-3">
+                           <label for="dropdownOptions">Select a group:</label>
+                           <select class="form-control" id="dropdownOptions" name="dropdownOptions">
 
-            <div class="card" id="chat1" style="border-radius: 15px;">
-               <div class="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
-                  <i class="fas fa-angle-left"></i>
-                  <p class="mb-0 fw-bold">Live chat</p>
-                  <i class="fas fa-times"></i>
-               </div>
-               <div class="card-body">
-                  <div class="form-outline">
-                     <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
-                     <label class="form-label" for="textAreaExample">Type your message</label>
+                              @foreach ($lists as $tbl_list)
+                              <option value= "{{ $tbl_list->IL_ID}}" >{{ $tbl_list->VL_NAME }}</option>
+                              @endforeach
+
+                           </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-success mt-3" id="send-message">Send</button>
+
+                     </div>
                   </div>
-                  <div class="form-group mt-3">
-                     <label for="dropdownOptions">Select a group:</label>
-                     <select class="form-control" id="dropdownOptions">
-                     
-                     @foreach ($lists as $tbl_list)
-                        <option> {{ $tbl_list->VL_NAME }} </option>
-                     @endforeach
-
-                     </select>
-                  </div>
-
-                  <button type="submit" class="btn btn-success mt-3">Send</button>
 
                </div>
             </div>
 
          </div>
-      </div>
-
-   </div>
-</section>
-
+      </section>
+   </form>
 
 
 

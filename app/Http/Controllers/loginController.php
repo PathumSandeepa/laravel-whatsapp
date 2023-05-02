@@ -10,10 +10,17 @@ use Illuminate\Support\Facades\Hash;
 
 class loginController extends Controller
 {
+
+
     public function login()
     {
         return view('login');
     }
+
+    /**
+     * @param  Request  $request
+     * @return Response
+     */
 
     public function loginValidate(Request $request)
     {
